@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+<style>
+      h1 {
+        font-family: monospace; 
+        font-style: oblique;
+        background-color: white;  color: black;
+      }
+
+      p {
+         font-family: monospace; 
+         font-size: 18px;
+         font-style: oblique;
+         background-color: white; color: black;
+      }
+    </style>
+</head>
+<fieldset>
+  <legend>Contacts</legend>
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name">
+  <br>
+  <label for="gmail">Gmail:</label>
+  <input type="text" id="gmail" name="gmail"> 
+  <br>
+  <label for="message">Message:</label>
+  <textarea type="text" name="message" maxlength="100" rows="4" cols="50"></textarea>
+  <br>
+ 
+  <button type="submit">Send</button>
+
+<br>
+<h1>Your Secrets.<h1>
+  <p>Click the button to Reveal Your Secrets.</p>
+  
+  <button id="getLocation">Reveal.</button>
+  
+  <p id="result"></p>
+  
+  <script>
+    const getLocationButton = document.getElementById('getLocation');
+    const resultElement = document.getElementById('result');
+    
+    getLocationButton.addEventListener('click', () => {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          resultElement.textContent = `Latitude: ${latitude}, Longitude: ${longitude}`;
+        });
+      } else {
+        resultElement.textContent = "Geolocation is not supported by your browser =[.";
+      }
+    });
+ </script>
+<br>
+
+<a href="https://github.com/jrandolph2026-create" target="_blank">Visit My GitHub Acc!</a>
+</fieldset>
